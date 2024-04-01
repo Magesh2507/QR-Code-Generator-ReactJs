@@ -1,0 +1,46 @@
+.app-container{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 80vh;
+}
+h1, p{
+    text-align: center;
+}
+.image{
+    margin: 20px auto;
+    text-align: center;
+}
+label{
+    color: rgb(0, 119, 255);
+    margin-bottom: 10px;
+}
+
+input{
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.button{
+    padding: 10px;
+    margin: 10px 0px;
+    font-weight: 800;
+    color: white;
+    border-radius: 5px;
+    
+}
+.button:hover{
+    cursor: pointer;
+}
+.button:disabled{
+    cursor: not-allowed;
+}
+.generate-qrcode{
+    background-color: rgb(0, 162, 255);
+}
+
+.download-qrcode{
+    background-color: rgb(12, 141, 34);
+}
+
