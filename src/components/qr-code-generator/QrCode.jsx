@@ -34,6 +34,14 @@ const QrCode = () => {
             }
             )
     }
+
+    const setQrCodeSize = (e) => {
+        const inputValue = e.target.value;
+        if (inputValue === "" || (/^\d+$/.test(inputValue) && inputValue.length <= 3)) {
+            setSize(inputValue);
+        } 
+    }
+    
     useEffect(() => {
         if (img) {
             setData("");
@@ -48,7 +56,7 @@ const QrCode = () => {
             <label htmlFor='qr-data' >Data for QR Code:</label>
             <input id='qr-data' placeholder='' disabled={img} value={data} onChange={(e) => setData(e.target.value)}></input>
             <label htmlFor='image-size' >Image Size (e.g. 150):</label>
-            <input id='image-size' placeholder='' disabled={img} value={size} onChange={(e) => setSize(e.target.value)}></input>
+            <input id='image-size' placeholder='' disabled={img} value={size} onChange={(e) => setQrCodeSize(e)}></input>
             <button className='button generate-qrcode' onClick={generateQrCode} disabled={!(data && size)}>Generate QR Code</button>
             <button className='button download-qrcode' onClick={downloadQrCode} disabled={!img}>Download QR Code</button>
         </div>
