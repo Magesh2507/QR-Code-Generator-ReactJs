@@ -16,7 +16,7 @@ const QrCode = () => {
             setTimeout(()=>{
                 setLoading(false)
                 setImg(url)
-            },3000)
+            },1000)
         } catch (err) {
             setLoading(false)
             console.log(err)
