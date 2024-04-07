@@ -10,7 +10,9 @@ const QrCode = () => {
     const generateQrCode = () => {
         setLoading(true)       
         try {
-            const url = `http://api.qrserver.com/v1/create-qr-code/?size=${size}&data=${encodeURIComponent(data)}`
+            //const url = `http://api.qrserver.com/v1/create-qr-code/?size=${size}&data=${encodeURIComponent(data)}`
+            const url = `https://chart.googleapis.com/chart?chs=${size}&cht=qr&chl=${encodeURIComponent(data)}`
+
             setTimeout(()=>{
                 setLoading(false)
                 setImg(url)
@@ -21,8 +23,8 @@ const QrCode = () => {
         }
     }
 
-    const downloadQrCode = () => {
-        fetch(img).then(response => response.blob())
+    const downloadQrCode = async () => {
+       await fetch(img).then(response => response.blob())
             .then((blob) => {
                 const Link = document.createElement("a")
                 Link.href = URL.createObjectURL(blob)
@@ -32,7 +34,9 @@ const QrCode = () => {
                 document.body.removeChild(Link)
 
             }
-            )
+            ).catch(err=>{
+                console.log(err)
+            })
     }
 
     const setQrCodeSize = (e) => {
