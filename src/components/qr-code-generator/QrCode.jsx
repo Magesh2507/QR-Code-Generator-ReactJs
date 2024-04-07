@@ -10,7 +10,8 @@ const QrCode = () => {
     const generateQrCode = () => {
         setLoading(true);       
         try {
-            const url = `https://chart.googleapis.com/chart?chs=${size}&cht=qr&chl=${encodeURIComponent(data)}`;
+            //const url = `https://chart.googleapis.com/chart?chs=${size}&cht=qr&chl=${encodeURIComponent(data)}`;
+            const url = `http://api.qrserver.com/v1/create-qr-code/?size=${size}&data=${encodeURIComponent(data)}`
             setImg(url);
         } catch (err) {
             console.error(err);
