@@ -10,13 +10,13 @@ const QrCode = () => {
     const generateQrCode = () => {
         setLoading(true)       
         try {
-            //const url = `http://api.qrserver.com/v1/create-qr-code/?size=${size}&data=${encodeURIComponent(data)}`
-            const url = `https://chart.googleapis.com/chart?chs=${size}&cht=qr&chl=${encodeURIComponent(data)}`
+            const url = `http://api.qrserver.com/v1/create-qr-code/?size=${size}&data=${encodeURIComponent(data)}`
+            //const url = `https://chart.googleapis.com/chart?chs=${size}&cht=qr&chl=${encodeURIComponent(data)}`
 
             setTimeout(()=>{
-                setLoading(false)
                 setImg(url)
-            },1000)
+                setLoading(false)                
+            },2000)
         } catch (err) {
             setLoading(false)
             console.log(err)
@@ -32,7 +32,6 @@ const QrCode = () => {
                 document.body.appendChild(Link)
                 Link.click()
                 document.body.removeChild(Link)
-
             }
             ).catch(err=>{
                 console.log(err)
